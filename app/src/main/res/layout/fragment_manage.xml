@@ -1,0 +1,139 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_weight="1"
+    tools:context="mahlabs.mapsfriends.fragments.ManageFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.01"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tvCurrentGrp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enCurrentGrp"
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorHeaderText"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvCurrentGrpName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enCurrentGrpNone" />
+
+                <TextView
+                    android:id="@+id/tvMembersAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnDeregister"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:text="@string/enBtnDeReg" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvAvaibleGrps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enAvailableGrps"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorHeaderText"
+        android:paddingLeft="5dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".8"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/lvList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.01"
+        android:layout_marginBottom="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvCreateGrp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enCreateGrp"
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorHeaderText"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etCreateGrp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/enGroupName"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/btnCreateGrp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/enCreateBtn" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
