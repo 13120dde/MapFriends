@@ -2,6 +2,8 @@ package mahlabs.mapsfriends.fragments;
 
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -38,6 +40,7 @@ public class ManageFragment extends Fragment{
     private ListView lvGroups;
     private ArrayAdapter<String> adapter;
     private String[] listContent = new String[0];
+    private MainActivity activity;
 
     private UpdateFragment responseListener;
 
@@ -47,9 +50,19 @@ public class ManageFragment extends Fragment{
 
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        activity = (MainActivity) context;
+        Log.d("IN_ONATTACH","MANAGE");
+
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((MainActivity)getActivity()).hideKeyboard();
+        Log.d("IN_ONCREATE","MANAGE");
+
+        activity.hideKeyboard();
 
     }
 
@@ -64,6 +77,8 @@ public class ManageFragment extends Fragment{
             e.printStackTrace();
         }
 
+        Log.d("IN_ONCREATEV","MANAGE");
+
 
         View rootView = inflater.inflate(R.layout.fragment_manage, container, false);
         initComponents(rootView);
@@ -73,6 +88,12 @@ public class ManageFragment extends Fragment{
 
         // Inflate the layout for this fragment
         return rootView;
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
     }
 
     private void populateListView() {
@@ -100,7 +121,6 @@ public class ManageFragment extends Fragment{
             public void onClick(View view) {
                 try {
                     controller.sendToServer(JsonHandler.deregistration(controller.getThisUser().getId()));
-                    btnDeregister.setEnabled(false);
                 } catch (IOException e) {
                     //e.printStackTrace();
                 }
@@ -137,7 +157,7 @@ public class ManageFragment extends Fragment{
         adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1, listContent);
         lvGroups.setAdapter(adapter);
         lvGroups.setOnItemClickListener(new ListListener());
-
+/*
         String groupName = controller.getCurrentGroup();
         if(groupName==null){
             tvCurrentGrp.setText("None");
@@ -145,7 +165,7 @@ public class ManageFragment extends Fragment{
         }else{
             tvCurrentGrp.setText(groupName);
             //TODO get amount of members
-        }
+        }*/
     }
 
 
@@ -154,10 +174,10 @@ public class ManageFragment extends Fragment{
         if(currentGrp==null){
             return;
         }
-        Log.d(TAG, "update() - " +currentGrp );
+        Log.d(TAG, "IN_update() - " +currentGrp );
 
         tvCurrentGrp.setText(currentGrp);
-        if(currentGrp.equals("None")){
+        if(currentGrp.equals(activity.getResources().getString(R.string.enCurrentGrpNone))){
             btnDeregister.setEnabled(false);
             btnCreateGrp.setEnabled(true);
             etNewGroup.setEnabled(true);
@@ -172,7 +192,6 @@ public class ManageFragment extends Fragment{
         tvCurrentGrp.invalidate();
         btnDeregister.invalidate();
         btnCreateGrp.invalidate();
-
 
     }
 
@@ -194,7 +213,10 @@ public class ManageFragment extends Fragment{
 
         @Override
         public void update() {
-            getActivity().runOnUiThread(new Runnable() {
+            /*if(getActivity()==null){
+                return;
+            }*/
+            activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     updateUI();

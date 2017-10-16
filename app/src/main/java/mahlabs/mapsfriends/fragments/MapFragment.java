@@ -1,10 +1,13 @@
 package mahlabs.mapsfriends.fragments;
 
 
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,11 +39,20 @@ public class MapFragment extends Fragment{
     private GoogleMap map;
     private Controller controller;
     private boolean first= true;
+    private MainActivity activity;
 
 
     public MapFragment() {
         // Required empty public constructor
     }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.d("IN_ONATTACH","MAP");
+        activity=(MainActivity)context;
+    }
+
 
 
     @Override
@@ -87,8 +99,11 @@ public class MapFragment extends Fragment{
     }
 
     public void addMarker() {
-
-        ((MainActivity)getActivity()).runOnUiThread(new Runnable() {
+/*
+        if(getActivity()==null){
+            return;
+        }*/
+        activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if(map!=null){

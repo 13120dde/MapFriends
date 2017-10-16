@@ -43,6 +43,7 @@ public class Controller {
         if(dataFragment==null){
             dataFragment = new DataFragment();
             dataFragment.setCurrentTag(MapFragment.TAG);
+            dataFragment.setCurrentGroup(activity.getResources().getString(R.string.enCurrentGrpNone));
             fm.beginTransaction().add(dataFragment,DataFragment.TAG).commit();
         }
 
@@ -152,7 +153,7 @@ public class Controller {
             if(locator!=null){
                 locator = null;
             }
-            dataFragment.setCurrentGroup("None");
+            dataFragment.setCurrentGroup(activity.getResources().getString(R.string.enCurrentGrpNone));
             dataFragment.setCurrentUsers(new ArrayList<User>());
             fManageListener.update();
         }
