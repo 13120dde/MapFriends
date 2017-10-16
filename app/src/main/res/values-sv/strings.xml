@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MapFriends</string>
+    <string name="enBtnMap">Karta</string>
+    <string name="enBtnChat">Gruppchatt</string>
+    <string name="enBtnManage">Hantera grupper</string>
+    <string name="enCreateBtn">Skapa</string>
+    <string name="enBtnDeReg">Lämna</string>
+
+
+    <string name="enCurrentGrp">Befintlig grupp</string>
+    <string name="enCreateGrp">Skapa en grupp</string>
+    <string name="enGroupName">Gruppnamn</string>
+
+    <string name="enCurrentGrpNone">Ingen</string>
+    <string name="enAvailableGrps">Tillgängliga grupper</string>
+    <string name="enRegisteredInGrp">Registrerade användare: </string>
+
+</resources>

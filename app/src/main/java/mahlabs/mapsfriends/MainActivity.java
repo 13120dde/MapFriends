@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             ft.add(R.id.fragment_container,mapFragment,MapFragment.TAG);
 
             ft.hide(manageFragment);
-            ft.hide(mapFragment);
+          //  ft.hide(mapFragment);
             ft.hide(chatFragment);
             ft.commit();
 
